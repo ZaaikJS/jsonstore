@@ -1,7 +1,7 @@
 {
-  "name": "jsonstore",
+  "name": "@zaaik/jsonstore",
   "version": "1.0.0",
-  "description": "Wrapper tipado sobre localStorage para salvar JSON com facilidade.",
+  "description": "A tiny typed wrapper around localStorage for painless JSON persistence.",
   "main": "./dist/cjs/index.js",
   "module": "./dist/esm/index.js",
   "types": "./dist/cjs/index.d.ts",
@@ -16,6 +16,9 @@
     "dist",
     "README.md"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "engines": {
     "node": "^20.0.0 || ^22.0.0 || >=24.0.0"
   },
@@ -24,17 +27,30 @@
     "build:esm": "tsc -p tsconfig.esm.json",
     "build:cjs": "tsc -p tsconfig.cjs.json",
     "postbuild": "node scripts/postbuild.mjs",
+    "prepublishOnly": "npm run build",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "test": "vitest run",
     "test:watch": "vitest",
+    "contributors:add": "all-contributors add",
+    "contributors:generate": "all-contributors generate",
     "prepare": "husky"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "localStorage",
+    "json",
+    "storage",
+    "typescript",
+    "browser"
+  ],
+  "author": "Zaaik",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ZaaikJS/jsonstore.git"
+  },
   "type": "commonjs",
   "lint-staged": {
     "*.{js,mjs,cjs,ts}": [
@@ -47,6 +63,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
+    "all-contributors-cli": "^6.26.1",
     "eslint": "^10.8.1",
     "eslint-config-prettier": "^10.1.8",
     "globals": "^17.11.0",
